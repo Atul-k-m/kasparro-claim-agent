@@ -11,8 +11,8 @@ A Python agent reads a long AI answer about speakers. It extracts every factual 
 | FastAPI `POST /classify`, `POST /evaluation-runs`, `GET /evaluation-runs/{id}` + PostgreSQL | Done |
 | Controlled tests | 52 passing (see `reports/test_output.txt`) |
 | v2 targeted change (`app/prompts/v2.md`) | Done: one added extraction rule (see Investigation) |
-| Live run: v1 development | **In progress at the deadline** (Groq free tier: 8k tokens/min, about 40 s per answer). Report written to `reports/` when complete |
-| v2 development, v1 check, v2 check | **Queued** to run one after another once v1 development finishes; reports will be added to `reports/` |
+| Live run: v1 development | **Interrupted** after 34 of 40 answers. Groq's free-tier daily cap (200k tokens/day) was hit at A34. Run status `failed`; partial evidence kept in `reports/v1_development_2026-10-19T111919.*` and in PostgreSQL |
+| v2 development, v1 check, v2 check | **Not run yet** (daily token quota). A complete v1 development rerun is also needed |
 
 ## Layout
 
@@ -120,11 +120,19 @@ Issued CSVs are kept unmodified in the repository root:
 
 **v2 targeted change.** v2 is v1 plus one extraction rule; `diff app/prompts/v1.md app/prompts/v2.md` shows a single added line. The rule says a factual sentence still counts when the catalogue has no matching fact: extract it, label it `unknown` and never omit it, with examples such as origin, future prices or promises, return terms, connection features and other unlisted specifications. It targets the largest error group, missed `unknown` claims. The expected risk is more extra predictions, if advice sentences start being extracted as `unknown`; the v2 development run measures this. The two labeling errors are deliberately left unchanged so that only one behavior changes.
 
-The diagnosis used v1's first 11 answers because of the deadline. The full v1 development report will be added when the run completes. The data, evaluator, provider, model and settings are identical for v1 and v2. I have not tuned on the check answers.
+The diagnosis used v1's first 11 answers because of the deadline. The interrupted v1 run later processed 34 answers and showed the same pattern:
+
+| OK answers | Errors | Joint P / R / F1 | Extraction F1 | Missed | Extra | Wrong label |
+|---|---|---|---|---|---|---|
+| 31 | 3 | 0.975 / 0.942 / 0.958 | 0.979 | 11 | 1 | 6 |
+
+- Errors: A13 and A21 were `invalid_output` (a quote was not verbatim, so it was correctly rejected), and A34 was rate-limited.
+- 10 of the 11 missed claims have gold label `unknown`.
+- These figures cover a partial run, are not a full-split result, and the counts above leave out the 3 error answers. The data, evaluator, provider, model and settings are identical for v1 and v2. I have not tuned on the check answers.
 
 ## Unfinished work
 
-- Complete the v1 development run (in progress) and the v2 development run, then run v1 check and v2 check with both versions frozen. These are queued to run automatically one after another.
+- Rerun v1 development in full, run v2 development, then run v1 check and v2 check with both versions frozen. Together these need about 575k tokens, against Groq's free-tier cap of 200k tokens per day.
 - After the runs: compare v1 and v2 on all 40 development answers and report the measured effect, including any regressions or no gain.
 - The cause is throughput: the Groq free tier allows 8,000 tokens per minute, and one answer uses about 5.5k tokens over 2 turns. The 100 answer-runs need about 1.5 hours of wall time. A paid tier or another provider would finish in about 15 minutes.
 
