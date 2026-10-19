@@ -1,0 +1,44 @@
+{
+ "turns": [
+  {
+   "turn": 1,
+   "tool_choice": "required",
+   "latency_ms": 11400,
+   "usage": {
+    "prompt_tokens": 1215,
+    "completion_tokens": 65
+   },
+   "finish_reason": "tool_calls",
+   "content": null,
+   "tool_calls": [
+    {
+     "name": "get_brand_facts",
+     "arguments": "{\"brand_id\":\"stonewave\"}"
+    }
+   ]
+  },
+  {
+   "turn": 2,
+   "tool_choice": "none",
+   "latency_ms": 22395,
+   "usage": {
+    "prompt_tokens": 3089,
+    "completion_tokens": 1066
+   },
+   "finish_reason": "stop",
+   "content": "{\n  \"answer_id\": \"A27\",\n  \"claims\": [\n    {\n      \"quote\": \"Basic Bluetooth playback on StoneWave Go requires the manufacturer companion app to be installed first, rather than allowing a listener to pair a source and start playback without it.\",\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"stonewave.go.app_required_bluetooth\"],\n      \"reason\": \"Catalogue states basic Bluetooth does not require the app.\"\n    },\n    {\n      \"quote\": \"For a current India catalogue comparison before shipping, StoneWave Go is INR 1,500 more expensive than StoneWave Max, with tax included in both listed prices.\",\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"stonewave.go.price_2026\", \"stonewave.max.price_2026\"],\n      \"reason\": \"Go price 1999 INR is cheaper than Max 3499 INR, not more expensive.\"\n    },\n    {\n      \"quote\": \"Looking back specifically at the 2025 India catalogue rather than the current offer, the listed tax-inclusive price of StoneWave Go was INR 1,799 before shipping.\",\n      \"label\": \"supported\",\n      \"fact_ids\": [\"stonewave.go.price_2025\"],\n      \"reason\": \"Catalogue lists 2025 price as 1799 INR.\"\n    },\n    {\n      \"quote\": \"With all port covers closed, StoneWave Go is explicitly permitted to be immersed in fresh water, rather than being restricted to the non-immersion use implied by a more cautious reading.\",\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"stonewave.go.immersion_allowed\"],\n      \"reason\": \"Immersion_allowed is false for Go.\"\n    },\n    {\n      \"quote\": \"The official India retail box for StoneWave Go does not contain a wall charging adapter, so the box contents should not be inferred just from the charging-port type.\",\n      \"label\": \"supported\",\n      \"fact_ids\": [\"stonewave.go.adapter_included\"],\n      \"reason\": \"Adapter_included is false, meaning no wall adapter.\"\n    },\n    {\n      \"quote\": \"For the current India catalogue, StoneWave Go is listed at INR 1,500 less than StoneWave Max, comparing the two tax-inclusive prices before shipping.\",\n      \"label\": \"supported\",\n      \"fact_ids\": [\"stonewave.go.price_2026\", \"stonewave.max.price_2026\"],\n      \"reason\": \"1999 INR is exactly 1500 INR less than 3499 INR.\"\n    }\n  ]\n}",
+   "tool_calls": []
+  }
+ ],
+ "tool_calls": [
+  {
+   "turn": 1,
+   "name": "get_brand_facts",
+   "arguments": "{\"brand_id\":\"stonewave\"}",
+   "returned_rows": 44
+  }
+ ],
+ "looked_up_brands": [
+  "stonewave"
+ ]
+}

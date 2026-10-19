@@ -1,0 +1,44 @@
+{
+ "turns": [
+  {
+   "turn": 1,
+   "tool_choice": "required",
+   "latency_ms": 10631,
+   "usage": {
+    "prompt_tokens": 1174,
+    "completion_tokens": 66
+   },
+   "finish_reason": "tool_calls",
+   "content": null,
+   "tool_calls": [
+    {
+     "name": "get_brand_facts",
+     "arguments": "{\"brand_id\":\"cloudnote\"}"
+    }
+   ]
+  },
+  {
+   "turn": 2,
+   "tool_choice": "none",
+   "latency_ms": 21565,
+   "usage": {
+    "prompt_tokens": 3073,
+    "completion_tokens": 1152
+   },
+   "finish_reason": "stop",
+   "content": "{\n  \"answer_id\": \"A23\",\n  \"claims\": [\n    {\n      \"quote\": \"When measuring just the speaker rather than the retail box and accessories, CloudNote Studio weighs 350 grams, matching the carrying-weight figure associated with CloudNote Air.\",\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"cloudnote.studio.weight\"],\n      \"reason\": \"Catalogue lists Studio weight as 1100 g, not 350 g.\"\n    },\n    {\n      \"quote\": \"The Bluetooth connection on CloudNote Studio maintains uninterrupted playback at a distance of one hundred metres outdoors, even when a listener changes the phone used as the transmitting device.\",\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"No catalogue fact about Bluetooth range.\"\n    },\n    {\n      \"quote\": \"The official India retail box for CloudNote Studio contains a wall charging adapter, so the box contents should not be inferred just from the charging-port type.\",\n      \"label\": \"supported\",\n      \"fact_ids\": [\"cloudnote.studio.adapter_included\"],\n      \"reason\": \"Fact states adapter_included is true for Studio.\"\n    },\n    {\n      \"quote\": \"In winter weather below freezing, CloudNote Studio delivers its full 18-hour laboratory battery duration at fifty percent volume, without the outdoor temperature changing the stated runtime.\",\n      \"label\": \"supported\",\n      \"fact_ids\": [\"cloudnote.studio.battery_50_percent\"],\n      \"reason\": \"Battery 50 % volume runtime is listed as 18 hours.\"\n    },\n    {\n      \"quote\": \"The official India retail box for CloudNote Studio does not include a wall charging adapter, even though separate accessory lists may make the charging arrangement look less obvious.\",\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"cloudnote.studio.adapter_included\"],\n      \"reason\": \"Fact shows adapter_included is true, not false.\"\n    },\n    {\n      \"quote\": \"An opened CloudNote Studio can be returned to any authorized India seller within thirty days for a full refund, even when the speaker has no manufacturing defect or functional problem.\",\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"Return policy not covered in catalogue.\"\n    },\n    {\n      \"quote\": \"Even when other warranty conditions are met for an authorized India purchase, the original purchase invoice is still required to claim the standard manufacturer warranty for CloudNote Studio.\",\n      \"label\": \"supported\",\n      \"fact_ids\": [\"cloudnote.studio.warranty_invoice_required\"],\n      \"reason\": \"Warranty requires original invoice per fact.\"\n    },\n    {\n      \"quote\": \"Whatever conclusions a buyer draws from the water-resistance rating, water damage remains excluded from the standard India manufacturer warranty covering CloudNote Studio after an authorized purchase.\",\n      \"label\": \"supported\",\n      \"fact_ids\": [\"cloudnote.studio.water_damage_covered\"],\n      \"reason\": \"Water damage not covered under warranty.\"\n    }\n  ]\n}",
+   "tool_calls": []
+  }
+ ],
+ "tool_calls": [
+  {
+   "turn": 1,
+   "name": "get_brand_facts",
+   "arguments": "{\"brand_id\":\"cloudnote\"}",
+   "returned_rows": 44
+  }
+ ],
+ "looked_up_brands": [
+  "cloudnote"
+ ]
+}

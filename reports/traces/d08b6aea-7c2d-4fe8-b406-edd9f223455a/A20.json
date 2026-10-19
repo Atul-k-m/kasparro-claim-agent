@@ -1,0 +1,44 @@
+{
+ "turns": [
+  {
+   "turn": 1,
+   "tool_choice": "required",
+   "latency_ms": 17442,
+   "usage": {
+    "prompt_tokens": 1182,
+    "completion_tokens": 50
+   },
+   "finish_reason": "tool_calls",
+   "content": null,
+   "tool_calls": [
+    {
+     "name": "get_brand_facts",
+     "arguments": "{\"brand_id\":\"stonewave\"}"
+    }
+   ]
+  },
+  {
+   "turn": 2,
+   "tool_choice": "none",
+   "latency_ms": 24689,
+   "usage": {
+    "prompt_tokens": 3056,
+    "completion_tokens": 1324
+   },
+   "finish_reason": "stop",
+   "content": "{\n  \"answer_id\": \"A20\",\n  \"claims\": [\n    {\n      \"quote\": \"The manufacturer supports a stereo pair made from one StoneWave Go and one StoneWave Max, since being members of the same brand is sufficient for cross-model stereo compatibility.\",\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"stonewave.go.stereo_pairing_scope\", \"stonewave.max.stereo_pairing_scope\"],\n      \"reason\": \"Both models allow stereo pairing only with the same model; cross‑model pairing is unsupported.\"\n    },\n    {\n      \"quote\": \"In the 2025 India catalogue, before the current-year revision, StoneWave Go already carried the same tax-inclusive list price of INR 1,999, excluding shipping from that amount.\",\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"stonewave.go.price_2025\"],\n      \"reason\": \"The 2025 catalogue lists the price as INR 1,799, not INR 1,999.\"\n    },\n    {\n      \"quote\": \"The normal manufacturing origin of StoneWave Go is India, even when the unit is purchased through an authorized seller rather than ordered directly from the manufacturer's own retail channel.\",\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"No catalogue fact about manufacturing origin.\"\n    },\n    {\n      \"quote\": \"The manufacturer permits stereo pairing only between two units of the exact StoneWave Go model, rather than treating every speaker sharing the same brand name as a compatible stereo partner.\",\n      \"label\": \"supported\",\n      \"fact_ids\": [\"stonewave.go.stereo_pairing_scope\"],\n      \"reason\": \"Catalogue states stereo pairing is limited to the same model.\"\n    },\n    {\n      \"quote\": \"The Bluetooth connection on StoneWave Go maintains uninterrupted playback at a distance of one hundred metres outdoors, even when a listener changes the phone used as the transmitting device.\",\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"No catalogue fact about Bluetooth range.\"\n    },\n    {\n      \"quote\": \"Despite the declared IPX5 water-resistance rating, the manufacturer does not permit fresh-water immersion of StoneWave Go, even with all of the port covers properly closed.\",\n      \"label\": \"supported\",\n      \"fact_ids\": [\"stonewave.go.water_rating\", \"stonewave.go.immersion_allowed\"],\n      \"reason\": \"Water rating is IPX5 and immersion_allowed is false.\"\n    },\n    {\n      \"quote\": \"For an India purchase at the official catalogue list price on 1 October 2026, StoneWave Go costs INR 1,999 including tax but excluding shipping.\",\n      \"label\": \"supported\",\n      \"fact_ids\": [\"stonewave.go.price_2026\"],\n      \"reason\": \"Catalogue lists the 2026 price as INR 1,999, tax‑included, shipping excluded.\"\n    },\n    {\n      \"quote\": \"The plastic used in the enclosure of StoneWave Go contains at least sixty percent post-consumer recycled material by weight, excluding the electronic components and the external retail packaging.\",\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"No catalogue fact about recycled material content.\"\n    }\n  ]\n}",
+   "tool_calls": []
+  }
+ ],
+ "tool_calls": [
+  {
+   "turn": 1,
+   "name": "get_brand_facts",
+   "arguments": "{\"brand_id\":\"stonewave\"}",
+   "returned_rows": 44
+  }
+ ],
+ "looked_up_brands": [
+  "stonewave"
+ ]
+}

@@ -1,0 +1,44 @@
+{
+ "turns": [
+  {
+   "turn": 1,
+   "tool_choice": "required",
+   "latency_ms": 16036,
+   "usage": {
+    "prompt_tokens": 1245,
+    "completion_tokens": 86
+   },
+   "finish_reason": "tool_calls",
+   "content": null,
+   "tool_calls": [
+    {
+     "name": "get_brand_facts",
+     "arguments": "{\"brand_id\":\"cloudnote\"}"
+    }
+   ]
+  },
+  {
+   "turn": 2,
+   "tool_choice": "none",
+   "latency_ms": 24837,
+   "usage": {
+    "prompt_tokens": 3144,
+    "completion_tokens": 1345
+   },
+   "finish_reason": "stop",
+   "content": "{\n  \"answer_id\": \"A24\",\n  \"claims\": [\n    {\n      \"quote\": \"For an authorized India purchase with the original invoice and a manufacturing defect, CloudNote Air receives a standard manufacturer warranty lasting 30 months from the purchase date.\",\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"cloudnote.air.warranty_india\"],\n      \"reason\": \"Catalogue lists warranty as 24 months, not 30 months.\"\n    },\n    {\n      \"quote\": \"Compared with the unlisted RivalSound Trek, CloudNote Air provides two additional hours of playback under identical new-battery, fifty-percent-volume, EQ-off laboratory testing conditions for both devices.\",\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"No data on RivalSound Trek; cannot verify the comparison.\"\n    },\n    {\n      \"quote\": \"An authorized India service centre guarantees repair of CloudNote Air within two working days after receiving the unit and the required purchase paperwork, regardless of replacement-part availability.\",\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"Catalogue contains no repair‑time information.\"\n    },\n    {\n      \"quote\": \"CloudNote Air accepts two active Bluetooth source connections at the same time and switches between them automatically, without asking the listener to disconnect one phone before using the other.\",\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"Bluetooth multi‑source capability is not covered in the catalogue.\"\n    },\n    {\n      \"quote\": \"The manufacturer permits stereo pairing only between two units of the exact CloudNote Air model, rather than treating every speaker sharing the same brand name as a compatible stereo partner.\",\n      \"label\": \"supported\",\n      \"fact_ids\": [\"cloudnote.air.stereo_pairing_scope\"],\n      \"reason\": \"Catalogue states stereo pairing is limited to the same model.\"\n    },\n    {\n      \"quote\": \"When measuring just the speaker rather than the retail box and accessories, CloudNote Air weighs 1100 grams, matching the carrying-weight figure associated with CloudNote Studio.\",\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"cloudnote.air.weight\"],\n      \"reason\": \"Weight of Air is listed as 350 g, not 1100 g.\"\n    },\n    {\n      \"quote\": \"The move from the 2025 India catalogue to the 2026 catalogue raised the tax-inclusive list price of CloudNote Air by INR 300, with shipping excluded in both comparisons.\",\n      \"label\": \"supported\",\n      \"fact_ids\": [\"cloudnote.air.price_2025\", \"cloudnote.air.price_2026\"],\n      \"reason\": \"2025 price 1199 INR, 2026 price 1499 INR; difference is 300 INR.\"\n    },\n    {\n      \"quote\": \"Even when other warranty conditions are met for an authorized India purchase, the original purchase invoice is still required to claim the standard manufacturer warranty for CloudNote Air.\",\n      \"label\": \"supported\",\n      \"fact_ids\": [\"cloudnote.air.warranty_invoice_required\"],\n      \"reason\": \"Catalogue confirms invoice is required for warranty.\"\n    },\n    {\n      \"quote\": \"The official India retail box for CloudNote Air does not contain a wall charging adapter, so the box contents should not be inferred just from the charging-port type.\",\n      \"label\": \"supported\",\n      \"fact_ids\": [\"cloudnote.air.adapter_included\"],\n      \"reason\": \"Adapter inclusion is listed as false.\"\n    }\n  ]\n}",
+   "tool_calls": []
+  }
+ ],
+ "tool_calls": [
+  {
+   "turn": 1,
+   "name": "get_brand_facts",
+   "arguments": "{\"brand_id\":\"cloudnote\"}",
+   "returned_rows": 44
+  }
+ ],
+ "looked_up_brands": [
+  "cloudnote"
+ ]
+}

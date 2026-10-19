@@ -1,0 +1,44 @@
+{
+ "turns": [
+  {
+   "turn": 1,
+   "tool_choice": "required",
+   "latency_ms": 8765,
+   "usage": {
+    "prompt_tokens": 1182,
+    "completion_tokens": 50
+   },
+   "finish_reason": "tool_calls",
+   "content": null,
+   "tool_calls": [
+    {
+     "name": "get_brand_facts",
+     "arguments": "{\"brand_id\":\"cleartrail\"}"
+    }
+   ]
+  },
+  {
+   "turn": 2,
+   "tool_choice": "none",
+   "latency_ms": 34842,
+   "usage": {
+    "prompt_tokens": 3076,
+    "completion_tokens": 1228
+   },
+   "finish_reason": "stop",
+   "content": "{\n  \"answer_id\": \"A21\",\n  \"claims\": [\n    {\n      \"quote\": \"Water damage to ClearTrail Plus is included in the standard India manufacturer warranty after an authorized purchase, because water resistance should be understood as warranty coverage rather than just a product capability.\",\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"cleartrail.plus.water_damage_covered\"],\n      \"reason\": \"Catalogue states water damage is not covered.\"\n    },\n    {\n      \"quote\": \"At fifty percent volume with EQ off and a new battery in the laboratory, ClearTrail Plus is rated for 1260 minutes of playback before recharging becomes necessary.\",\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"cleartrail.plus.battery_50_percent\"],\n      \"reason\": \"Battery life at 50% volume is 20 hours (1200 minutes), not 1260 minutes.\"\n    },\n    {\n      \"quote\": \"The official India retail box for ClearTrail Plus does not contain a wall charging adapter, so the box contents should not be inferred just from the charging-port type.\",\n      \"label\": \"supported\",\n      \"fact_ids\": [\"cleartrail.plus.adapter_included\"],\n      \"reason\": \"Catalogue records adapter_included = false.\"\n    },\n    {\n      \"quote\": \"The normal manufacturing origin of ClearTrail Plus is India, even when the unit is purchased through an authorized seller rather than ordered directly from the manufacturer's own retail channel.\",\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"No origin information in catalogue.\"\n    },\n    {\n      \"quote\": \"The Bluetooth connection on ClearTrail Plus maintains uninterrupted playback at a distance of one hundred metres outdoors, even when a listener changes the phone used as the transmitting device.\",\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"Bluetooth range not covered in catalogue.\"\n    },\n    {\n      \"quote\": \"ClearTrail Plus accepts two active Bluetooth source connections at the same time and switches between them automatically, without asking the listener to disconnect one phone before using the other.\",\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"Multi‑point capability not in catalogue.\"\n    },\n    {\n      \"quote\": \"The move from the 2025 India catalogue to the 2026 catalogue raised the tax‑inclusive list price of ClearTrail Plus by INR 300, with shipping excluded in both comparisons.\",\n      \"label\": \"supported\",\n      \"fact_ids\": [\"cleartrail.plus.price_2025\", \"cleartrail.plus.price_2026\"],\n      \"reason\": \"2025 price 2199 INR, 2026 price 2499 INR, difference 300 INR.\"\n    },\n    {\n      \"quote\": \"When measuring just the speaker rather than the retail box and accessories, ClearTrail Plus weighs 320 grams, matching the carrying-weight figure associated with ClearTrail Mini.\",\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"cleartrail.plus.weight\"],\n      \"reason\": \"Plus weight is 580 grams, not 320 grams.\"\n    }\n  ]\n}",
+   "tool_calls": []
+  }
+ ],
+ "tool_calls": [
+  {
+   "turn": 1,
+   "name": "get_brand_facts",
+   "arguments": "{\"brand_id\":\"cleartrail\"}",
+   "returned_rows": 44
+  }
+ ],
+ "looked_up_brands": [
+  "cleartrail"
+ ]
+}

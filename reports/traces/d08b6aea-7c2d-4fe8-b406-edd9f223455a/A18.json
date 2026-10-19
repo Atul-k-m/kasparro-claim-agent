@@ -1,0 +1,44 @@
+{
+ "turns": [
+  {
+   "turn": 1,
+   "tool_choice": "required",
+   "latency_ms": 545,
+   "usage": {
+    "prompt_tokens": 1198,
+    "completion_tokens": 50
+   },
+   "finish_reason": "tool_calls",
+   "content": null,
+   "tool_calls": [
+    {
+     "name": "get_brand_facts",
+     "arguments": "{\"brand_id\":\"stonewave\"}"
+    }
+   ]
+  },
+  {
+   "turn": 2,
+   "tool_choice": "none",
+   "latency_ms": 20349,
+   "usage": {
+    "prompt_tokens": 3072,
+    "completion_tokens": 1137
+   },
+   "finish_reason": "stop",
+   "content": "{\n  \"answer_id\": \"A18\",\n  \"claims\": [\n    {\n      \"quote\": \"The official India retail box for StoneWave Max does not contain a wall charging adapter, so the box contents should not be inferred just from the charging-port type.\",\n      \"label\": \"supported\",\n      \"fact_ids\": [\"stonewave.max.adapter_included\"],\n      \"reason\": \"Catalogue states adapter_included is false for Max.\"\n    },\n    {\n      \"quote\": \"Orders for StoneWave Max receive free delivery to every India postal code, so there is no separate shipping charge even when a customer selects a remote delivery address.\",\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"No shipping or delivery policy facts are provided.\"\n    },\n    {\n      \"quote\": \"In the 2025 India catalogue, before the current-year revision, StoneWave Max already carried the same tax-inclusive list price of INR 3,499, excluding shipping from that amount.\",\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"stonewave.max.price_2025\"],\n      \"reason\": \"Catalogue lists 2025 price as INR 3,299, not 3,499.\"\n    },\n    {\n      \"quote\": \"StoneWave Max accepts two active Bluetooth source connections at the same time and switches between them automatically, without asking the listener to disconnect one phone before using the other.\",\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"Bluetooth connection count not covered in facts.\"\n    },\n    {\n      \"quote\": \"With all port covers closed, StoneWave Max is permitted to remain immersed in fresh water at a depth of one metre for a full hour under the manufacturer's stated laboratory allowance.\",\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"stonewave.max.immersion_allowed\", \"stonewave.max.immersion_depth\", \"stonewave.max.immersion_duration\"],\n      \"reason\": \"Immersion allowed true, depth 1 m true, but duration is 30 minutes, not a full hour.\"\n    },\n    {\n      \"quote\": \"For wired digital audio specifically, the USB-C connector on StoneWave Max does provide an audio-input path, regardless of the fact that the connector also serves charging.\",\n      \"label\": \"supported\",\n      \"fact_ids\": [\"stonewave.max.usb_audio\"],\n      \"reason\": \"Catalogue confirms usb_audio is true for Max.\"\n    },\n    {\n      \"quote\": \"The official India catalogue price of StoneWave Max will drop by INR 300 during January 2027, with that future reduction applying before shipping to purchases from the brand itself.\",\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"No future price change information is present in the catalogue.\"\n    },\n    {\n      \"quote\": \"The built-in microphone is not included on StoneWave Max, without needing an accessory to change the hardware specification being described for this exact speaker model.\",\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"stonewave.max.microphone\"],\n      \"reason\": \"Catalogue indicates microphone is true (included) for Max.\"\n    }\n  ]\n}",
+   "tool_calls": []
+  }
+ ],
+ "tool_calls": [
+  {
+   "turn": 1,
+   "name": "get_brand_facts",
+   "arguments": "{\"brand_id\":\"stonewave\"}",
+   "returned_rows": 44
+  }
+ ],
+ "looked_up_brands": [
+  "stonewave"
+ ]
+}

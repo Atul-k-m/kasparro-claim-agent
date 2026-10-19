@@ -1,0 +1,44 @@
+{
+ "turns": [
+  {
+   "turn": 1,
+   "tool_choice": "required",
+   "latency_ms": 628,
+   "usage": {
+    "prompt_tokens": 1239,
+    "completion_tokens": 53
+   },
+   "finish_reason": "tool_calls",
+   "content": null,
+   "tool_calls": [
+    {
+     "name": "get_brand_facts",
+     "arguments": "{\"brand_id\":\"stonewave\"}"
+    }
+   ]
+  },
+  {
+   "turn": 2,
+   "tool_choice": "none",
+   "latency_ms": 14145,
+   "usage": {
+    "prompt_tokens": 3113,
+    "completion_tokens": 1294
+   },
+   "finish_reason": "stop",
+   "content": "{\n  \"answer_id\": \"A26\",\n  \"claims\": [\n    {\n      \"quote\": \"Water damage to StoneWave Max is included in the standard India manufacturer warranty after an authorized purchase, because water resistance should be understood as warranty coverage rather than just a product capability.\",\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"stonewave.max.water_damage_covered\"],\n      \"reason\": \"Catalogue states water damage is not covered.\"\n    },\n    {\n      \"quote\": \"Orders for StoneWave Max receive free delivery to every India postal code, so there is no separate shipping charge even when a customer selects a remote delivery address.\",\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"No shipping cost information in catalogue.\"\n    },\n    {\n      \"quote\": \"The plastic used in the enclosure of StoneWave Max contains at least sixty percent post-consumer recycled material by weight, excluding the electronic components and the external retail packaging.\",\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"Recycled material content not in catalogue.\"\n    },\n    {\n      \"quote\": \"The official India catalogue price of StoneWave Max will drop by INR 300 during January 2027, with that future reduction applying before shipping to purchases from the brand itself.\",\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"Future price change not covered by catalogue.\"\n    },\n    {\n      \"quote\": \"The built-in Wi-Fi capability of StoneWave Max is present, independently of whatever Bluetooth connection a listener might also choose for everyday playback.\",\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"stonewave.max.wifi\"],\n      \"reason\": \"Catalogue lists Wi‑Fi as false.\"\n    },\n    {\n      \"quote\": \"Even when other warranty conditions are met for an authorized India purchase, the original purchase invoice is still required to claim the standard manufacturer warranty for StoneWave Max.\",\n      \"label\": \"supported\",\n      \"fact_ids\": [\"stonewave.max.warranty_invoice_required\"],\n      \"reason\": \"Catalogue requires invoice for warranty.\"\n    },\n    {\n      \"quote\": \"For an India purchase at the official catalogue list price on 1 October 2026, StoneWave Max costs INR 3,499 including tax but excluding shipping.\",\n      \"label\": \"supported\",\n      \"fact_ids\": [\"stonewave.max.price_2026\"],\n      \"reason\": \"Price matches catalogue entry.\"\n    },\n    {\n      \"quote\": \"An original invoice is unnecessary when claiming the standard India manufacturer warranty for StoneWave Max, provided the buyer says the purchase came from an authorized seller.\",\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"stonewave.max.warranty_invoice_required\"],\n      \"reason\": \"Catalogue states invoice is required.\"\n    },\n    {\n      \"quote\": \"Using a twenty-watt wall adapter, a fully discharged StoneWave Max reaches a complete charge in ninety minutes, so a short charging stop is enough to restore the entire battery.\",\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"Charging time not provided in catalogue.\"\n    },\n    {\n      \"quote\": \"Whatever conclusions a buyer draws from the water-resistance rating, water damage remains excluded from the standard India manufacturer warranty covering StoneWave Max after an authorized purchase.\",\n      \"label\": \"supported\",\n      \"fact_ids\": [\"stonewave.max.water_damage_covered\"],\n      \"reason\": \"Catalogue indicates water damage is not covered.\"\n    }\n  ]\n}",
+   "tool_calls": []
+  }
+ ],
+ "tool_calls": [
+  {
+   "turn": 1,
+   "name": "get_brand_facts",
+   "arguments": "{\"brand_id\":\"stonewave\"}",
+   "returned_rows": 44
+  }
+ ],
+ "looked_up_brands": [
+  "stonewave"
+ ]
+}
