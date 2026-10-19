@@ -118,7 +118,7 @@ Issued CSVs are kept unmodified in the repository root:
 
 ## Time spent
 
-About 1 hour of active build time with AI assistance (see below).
+About 1 hour of active build time with AI assistance (see below). A power cut before I could start reduced the time I had for the assessment. Within the time that remained, the unfinished live runs were limited by the Groq free-tier throughput described above.
 
 ## AI assistance disclosure
 
