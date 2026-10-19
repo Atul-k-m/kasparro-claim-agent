@@ -1,0 +1,44 @@
+{
+ "turns": [
+  {
+   "turn": 1,
+   "tool_choice": "required",
+   "latency_ms": 17143,
+   "usage": {
+    "prompt_tokens": 1242,
+    "completion_tokens": 53
+   },
+   "finish_reason": "tool_calls",
+   "content": null,
+   "tool_calls": [
+    {
+     "name": "get_brand_facts",
+     "arguments": "{\"brand_id\":\"stonewave\"}"
+    }
+   ]
+  },
+  {
+   "turn": 2,
+   "tool_choice": "none",
+   "latency_ms": 28884,
+   "usage": {
+    "prompt_tokens": 3116,
+    "completion_tokens": 1416
+   },
+   "finish_reason": "stop",
+   "content": "{\n  \"answer_id\": \"A13\",\n  \"claims\": [\n    {\n      \"quote\": \"In winter weather below freezing, StoneWave Go delivers its full 16-hour laboratory battery duration at fifty percent volume, without the outdoor temperature changing the stated runtime.\",\n      \"label\": \"unknown\",\n      \"fact_ids\": [\"stonewave.go.battery_50_percent\"],\n      \"reason\": \"Battery duration matches fact, but temperature effect not covered.\"\n    },\n    {\n      \"quote\": \"Orders for StoneWave Go receive free delivery to every India postal code, so there is no separate shipping charge even when a customer selects a remote delivery address.\",\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"No catalogue fact about delivery charges.\"\n    },\n    {\n      \"quote\": \"Water damage to StoneWave Go is included in the standard India manufacturer warranty after an authorized purchase, because water resistance should be understood as warranty coverage rather than just a product capability.\",\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"stonewave.go.water_damage_covered\"],\n      \"reason\": \"Warranty does not cover water damage per catalogue.\"\n    },\n    {\n      \"quote\": \"The built-in microphone is included on StoneWave Go, without needing an accessory to change the hardware specification being described for this exact speaker model.\",\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"stonewave.go.microphone\"],\n      \"reason\": \"Catalogue states microphone is not present.\"\n    },\n    {\n      \"quote\": \"A retail purchase of StoneWave Go in Germany qualifies for the same 18-month manufacturer warranty described for authorized India purchases, without any different regional terms affecting that duration.\",\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"No fact about German warranty terms.\"\n    },\n    {\n      \"quote\": \"The built-in Wi-Fi capability of StoneWave Go is present, independently of whatever Bluetooth connection a listener might also choose for everyday playback.\",\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"stonewave.go.wifi\"],\n      \"reason\": \"Catalogue indicates Wi‑Fi is not present.\"\n    },\n    {\n      \"quote\": \"With a new battery, EQ disabled and volume held at fifty percent in the laboratory, StoneWave Go has a stated playback duration of 960 minutes under those specific test conditions.\",\n      \"label\": \"supported\",\n      \"fact_ids\": [\"stonewave.go.battery_50_percent\"],\n      \"reason\": \"960 minutes equals 16 hours, matching battery spec.\"\n    },\n    {\n      \"quote\": \"For an India purchase at the official catalogue list price on 1 October 2026, StoneWave Go costs INR 1,999 including tax but excluding shipping.\",\n      \"label\": \"supported\",\n      \"fact_ids\": [\"stonewave.go.price_2026\"],\n      \"reason\": \"Price matches catalogue entry.\"\n    },\n    {\n      \"quote\": \"For wired digital audio specifically, the USB‑C connector on StoneWave Go does not provide an audio‑input path, regardless of the fact that the connector also serves charging.\",\n      \"label\": \"supported\",\n      \"fact_ids\": [\"stonewave.go.usb_audio\"],\n      \"reason\": \"Catalogue states USB‑C does not support audio input.\"\n    },\n    {\n      \"quote\": \"An opened StoneWave Go can be returned to any authorized India seller within thirty days for a full refund, even when the speaker has no manufacturing defect or functional problem.\",\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"No catalogue fact about return policy.\"\n    }\n  ]\n}",
+   "tool_calls": []
+  }
+ ],
+ "tool_calls": [
+  {
+   "turn": 1,
+   "name": "get_brand_facts",
+   "arguments": "{\"brand_id\":\"stonewave\"}",
+   "returned_rows": 44
+  }
+ ],
+ "looked_up_brands": [
+  "stonewave"
+ ]
+}

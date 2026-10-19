@@ -1,0 +1,44 @@
+{
+ "turns": [
+  {
+   "turn": 1,
+   "tool_choice": "required",
+   "latency_ms": 14394,
+   "usage": {
+    "prompt_tokens": 1243,
+    "completion_tokens": 53
+   },
+   "finish_reason": "tool_calls",
+   "content": null,
+   "tool_calls": [
+    {
+     "name": "get_brand_facts",
+     "arguments": "{\"brand_id\":\"stonewave\"}"
+    }
+   ]
+  },
+  {
+   "turn": 2,
+   "tool_choice": "none",
+   "latency_ms": 28125,
+   "usage": {
+    "prompt_tokens": 3117,
+    "completion_tokens": 1481
+   },
+   "finish_reason": "stop",
+   "content": "{\n  \"answer_id\": \"A11\",\n  \"claims\": [\n    {\n      \"quote\": \"In the 2025 India catalogue, before the current-year revision, StoneWave Max already carried the same tax-inclusive list price of INR 3,499, excluding shipping from that amount.\",\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"stonewave.max.price_2025\"],\n      \"reason\": \"Catalogue shows 2025 price as INR 3,299, not 3,499.\"\n    },\n    {\n      \"quote\": \"The built-in microphone is not included on StoneWave Max, without needing an accessory to change the hardware specification being described for this exact speaker model.\",\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"stonewave.max.microphone\"],\n      \"reason\": \"Fact indicates the microphone is included (true).\"\n    },\n    {\n      \"quote\": \"An authorized India service centre guarantees repair of StoneWave Max within two working days after receiving the unit and the required purchase paperwork, regardless of replacement-part availability.\",\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"No catalogue fact about repair time guarantees.\"\n    },\n    {\n      \"quote\": \"Orders for StoneWave Max receive free delivery to every India postal code, so there is no separate shipping charge even when a customer selects a remote delivery address.\",\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"Shipping cost policy not covered by facts.\"\n    },\n    {\n      \"quote\": \"For an India purchase at the official catalogue list price on 1 October 2026, StoneWave Max costs INR 3,499 including tax but excluding shipping.\",\n      \"label\": \"supported\",\n      \"fact_ids\": [\"stonewave.max.price_2026\"],\n      \"reason\": \"2026 price matches the stated INR 3,499.\"\n    },\n    {\n      \"quote\": \"Looking back specifically at the 2025 India catalogue rather than the current offer, the listed tax-inclusive price of StoneWave Max was INR 3,299 before shipping.\",\n      \"label\": \"supported\",\n      \"fact_ids\": [\"stonewave.max.price_2025\"],\n      \"reason\": \"2025 price is recorded as INR 3,299.\"\n    },\n    {\n      \"quote\": \"With all port covers closed, the laboratory immersion allowance for StoneWave Max is limited to fresh water at no more than one metre for no more than half an hour.\",\n      \"label\": \"supported\",\n      \"fact_ids\": [\"stonewave.max.immersion_allowed\", \"stonewave.max.immersion_depth\", \"stonewave.max.immersion_duration\"],\n      \"reason\": \"Facts confirm immersion allowed, depth 1 m, duration 30 min.\"\n    },\n    {\n      \"quote\": \"The plastic used in the enclosure of StoneWave Max contains at least sixty percent post-consumer recycled material by weight, excluding the electronic components and the external retail packaging.\",\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"Recycled material content not present in catalogue.\"\n    },\n    {\n      \"quote\": \"StoneWave Max accepts two active Bluetooth source connections at the same time and switches between them automatically, without asking the listener to disconnect one phone before using the other.\",\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"No fact about number of simultaneous Bluetooth connections.\"\n    },\n    {\n      \"quote\": \"The built-in microphone is included on StoneWave Max, so microphone availability should be checked for this exact model instead of copied from another speaker in the range.\",\n      \"label\": \"supported\",\n      \"fact_ids\": [\"stonewave.max.microphone\"],\n      \"reason\": \"Fact states microphone is present (true).\"\n    }\n  ]\n}",
+   "tool_calls": []
+  }
+ ],
+ "tool_calls": [
+  {
+   "turn": 1,
+   "name": "get_brand_facts",
+   "arguments": "{\"brand_id\":\"stonewave\"}",
+   "returned_rows": 44
+  }
+ ],
+ "looked_up_brands": [
+  "stonewave"
+ ]
+}

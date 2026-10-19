@@ -4,3 +4,10 @@
 [4/40] A04 ok claims=11  44613ms
 [5/40] A05 ok claims=8  36197ms
 [6/40] A06 ok claims=10  42706ms
+[7/40] A07 ok claims=8  35808ms
+[8/40] A08 ok claims=10  36105ms
+[9/40] A09 ok claims=9  33751ms
+[10/40] A10 ok claims=6  43712ms
+[11/40] A11 ok claims=10  42520ms
+[12/40] A12 ok claims=9  34685ms
+[13/40] A13 error claims=0 invalid_output 46028ms

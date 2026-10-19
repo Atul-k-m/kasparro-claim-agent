@@ -9,9 +9,10 @@ A Python agent reads a long AI answer about speakers. It extracts every factual 
 | Agent (tool use, extraction, Python span location, validation, 3-turn cap, timeout) | Done |
 | Deterministic harness (exact spans, extraction and joint P/R/F1, missed, extra and wrong-label records, error accounting) | Done |
 | FastAPI `POST /classify`, `POST /evaluation-runs`, `GET /evaluation-runs/{id}` + PostgreSQL | Done |
-| Controlled tests | 51 passing; 1 waits on the v2 prompt (see `reports/test_output.txt`) |
+| Controlled tests | 52 passing (see `reports/test_output.txt`) |
+| v2 targeted change (`app/prompts/v2.md`) | Done: one added extraction rule (see Investigation) |
 | Live run: v1 development | **In progress at the deadline** (Groq free tier: 8k tokens/min, about 40 s per answer). Report written to `reports/` when complete |
-| v2 change, v2 development, v1 check, v2 check | **Not done by the deadline.** Unfinished work, see below |
+| v2 development, v1 check, v2 check | **Queued** to run one after another once v1 development finishes; reports will be added to `reports/` |
 
 ## Layout
 
@@ -108,12 +109,23 @@ Issued CSVs are kept unmodified in the repository root:
 
 **Aborted pre-baseline run.** The first v1 development attempt used `tool_choice="auto"` on turn 2. gpt-oss on Groq then tried to send its final JSON as a call to an undeclared tool named `json`, and the provider rejected it with HTTP 400 `tool_use_failed`. This happened on 3 of 3 answers. I stopped the run to save the daily token quota and kept its evidence in `reports/aborted_pre_baseline/`; the database row is marked `failed`. The executor was changed before the v1 baseline: turn 1 requires the tool and later turns are answer-only. Provider `tool_use_failed` is now classified as `illegal_tool`.
 
-**Spot check.** On A02 the agent matched all 10 gold spans exactly. It mislabeled one: a below-freezing battery-runtime sentence was labeled `supported`, but gold says `unknown`. This is a condition-scope error, because the catalogue battery figure is a laboratory value with no temperature condition. It is the leading candidate for the v2 change, pending the full v1 error analysis.
+**v1 error diagnosis (first 11 development answers, A01 to A11, scored by the harness).**
+
+| Answers | G | P | M | C | Joint F1 | Extra predictions |
+|---|---|---|---|---|---|---|
+| 11 | 104 | 100 | 100 | 98 | 0.961 | 0 |
+
+- **Missed (4):** all in A10, and all have gold label `unknown`. They cover manufacturing origin, a future price drop, a return/refund policy and multipoint Bluetooth. The trace for A10 shows the model returned only 6 claims, every one `supported` or `contradicted`. It treated "no matching fact" as "not a claim" and dropped those sentences.
+- **Wrong label (2):** A02 is a below-freezing battery runtime, labeled `supported` where gold is `unknown` (condition scope). A09 is a reversed price-difference direction, labeled `supported` where gold is `contradicted`.
+
+**v2 targeted change.** v2 is v1 plus one extraction rule; `diff app/prompts/v1.md app/prompts/v2.md` shows a single added line. The rule says a factual sentence still counts when the catalogue has no matching fact: extract it, label it `unknown` and never omit it, with examples such as origin, future prices or promises, return terms, connection features and other unlisted specifications. It targets the largest error group, missed `unknown` claims. The expected risk is more extra predictions, if advice sentences start being extracted as `unknown`; the v2 development run measures this. The two labeling errors are deliberately left unchanged so that only one behavior changes.
+
+The diagnosis used v1's first 11 answers because of the deadline. The full v1 development report will be added when the run completes. The data, evaluator, provider, model and settings are identical for v1 and v2. I have not tuned on the check answers.
 
 ## Unfinished work
 
-- Complete the v1 development run, inspect missed, extra and wrong-label records, then write `app/prompts/v2.md` with one targeted change.
-- Run v2 development, freeze both versions, then run v1 check and v2 check.
+- Complete the v1 development run (in progress) and the v2 development run, then run v1 check and v2 check with both versions frozen. These are queued to run automatically one after another.
+- After the runs: compare v1 and v2 on all 40 development answers and report the measured effect, including any regressions or no gain.
 - The cause is throughput: the Groq free tier allows 8,000 tokens per minute, and one answer uses about 5.5k tokens over 2 turns. The 100 answer-runs need about 1.5 hours of wall time. A paid tier or another provider would finish in about 15 minutes.
 
 ## Time spent

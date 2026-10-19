@@ -1,60 +1,60 @@
-C:\Users\kumar\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\exceptions.py:65: in __call__
-    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
-C:\Users\kumar\AppData\Roaming\Python\Python311\site-packages\starlette\_exception_handler.py:64: in wrapped_app
-    raise exc
-C:\Users\kumar\AppData\Roaming\Python\Python311\site-packages\starlette\_exception_handler.py:53: in wrapped_app
-    await app(scope, receive, sender)
-C:\Users\kumar\AppData\Roaming\Python\Python311\site-packages\starlette\routing.py:756: in __call__
-    await self.middleware_stack(scope, receive, send)
-C:\Users\kumar\AppData\Roaming\Python\Python311\site-packages\starlette\routing.py:776: in app
-    await route.handle(scope, receive, send)
-C:\Users\kumar\AppData\Roaming\Python\Python311\site-packages\starlette\routing.py:297: in handle
-    await self.app(scope, receive, send)
-C:\Users\kumar\AppData\Roaming\Python\Python311\site-packages\starlette\routing.py:77: in app
-    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
-C:\Users\kumar\AppData\Roaming\Python\Python311\site-packages\starlette\_exception_handler.py:64: in wrapped_app
-    raise exc
-C:\Users\kumar\AppData\Roaming\Python\Python311\site-packages\starlette\_exception_handler.py:53: in wrapped_app
-    await app(scope, receive, sender)
-C:\Users\kumar\AppData\Roaming\Python\Python311\site-packages\starlette\routing.py:72: in app
-    response = await func(request)
-               ^^^^^^^^^^^^^^^^^^^
-C:\Users\kumar\AppData\Roaming\Python\Python311\site-packages\fastapi\routing.py:278: in app
-    raw_response = await run_endpoint_function(
-C:\Users\kumar\AppData\Roaming\Python\Python311\site-packages\fastapi\routing.py:193: in run_endpoint_function
-    return await run_in_threadpool(dependant.call, **values)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-C:\Users\kumar\AppData\Roaming\Python\Python311\site-packages\starlette\concurrency.py:42: in run_in_threadpool
-    return await anyio.to_thread.run_sync(func, *args)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-C:\Users\kumar\AppData\Roaming\Python\Python311\site-packages\anyio\to_thread.py:61: in run_sync
-    return await get_async_backend().run_sync_in_worker_thread(
-C:\Users\kumar\AppData\Roaming\Python\Python311\site-packages\anyio\_backends\_asyncio.py:2525: in run_sync_in_worker_thread
-    return await future
-           ^^^^^^^^^^^^
-C:\Users\kumar\AppData\Roaming\Python\Python311\site-packages\anyio\_backends\_asyncio.py:986: in run
-    result = context.run(func, *args)
-             ^^^^^^^^^^^^^^^^^^^^^^^^
-app\api.py:96: in create_run
-    report = run_evaluation(req.agent_version, req.split, make_provider(), run_settings, db)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-app\runner.py:75: in run_evaluation
-    "prompt_version": prompt_version(agent_version), "dataset_version": DATASET_VERSION,
-                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-app\agent.py:38: in prompt_version
-    digest = hashlib.sha256(load_prompt(version).encode("utf-8")).hexdigest()[:10]
-                            ^^^^^^^^^^^^^^^^^^^^
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+platform win32 -- Python 3.11.9, pytest-9.0.2, pluggy-1.6.0 -- C:\Program Files\Python311\python.exe
+cachedir: .pytest_cache
+rootdir: D:\asses
+plugins: anyio-4.12.0
+collecting ... collected 52 items
 
-version = 'v2'
+tests/test_agent_fake_provider.py::test_happy_path_uses_real_tool_call PASSED [  1%]
+tests/test_agent_fake_provider.py::test_malformed_output PASSED          [  3%]
+tests/test_agent_fake_provider.py::test_unsupported_label PASSED         [  5%]
+tests/test_agent_fake_provider.py::test_invented_fact_ids PASSED         [  7%]
+tests/test_agent_fake_provider.py::test_illegal_tool PASSED              [  9%]
+tests/test_agent_fake_provider.py::test_unknown_requested_brand PASSED   [ 11%]
+tests/test_agent_fake_provider.py::test_timeout_from_fake PASSED         [ 13%]
+tests/test_agent_fake_provider.py::test_real_adapter_maps_sdk_timeout PASSED [ 15%]
+tests/test_agent_fake_provider.py::test_turn_exhaustion PASSED           [ 17%]
+tests/test_agent_fake_provider.py::test_final_answer_without_lookup_rejected PASSED [ 19%]
+tests/test_agent_fake_provider.py::test_valid_empty_claims_allowed PASSED [ 21%]
+tests/test_agent_fake_provider.py::test_gold_never_enters_model_or_tool_payloads PASSED [ 23%]
+tests/test_agent_fake_provider.py::test_injection_text_is_never_executed PASSED [ 25%]
+tests/test_api_db.py::test_classify_success PASSED                       [ 26%]
+tests/test_api_db.py::test_classify_rejects_gold_claims_and_bad_fields[extra0] PASSED [ 28%]
+tests/test_api_db.py::test_classify_rejects_gold_claims_and_bad_fields[extra1] PASSED [ 30%]
+tests/test_api_db.py::test_classify_rejects_gold_claims_and_bad_fields[extra2] PASSED [ 32%]
+tests/test_api_db.py::test_classify_rejects_gold_claims_and_bad_fields[extra3] PASSED [ 34%]
+tests/test_api_db.py::test_classify_missing_field_422 PASSED             [ 36%]
+tests/test_api_db.py::test_classify_unknown_primary_brand_404 PASSED     [ 38%]
+tests/test_api_db.py::test_classify_provider_failures[err0-502] PASSED   [ 40%]
+tests/test_api_db.py::test_classify_provider_failures[err1-504] PASSED   [ 42%]
+tests/test_api_db.py::test_classify_invalid_model_output_502 PASSED      [ 44%]
+tests/test_api_db.py::test_development_run_persists_and_joins PASSED     [ 46%]
+tests/test_api_db.py::test_check_run_keeps_quality_null PASSED           [ 48%]
+tests/test_api_db.py::test_run_validation_and_missing PASSED             [ 50%]
+tests/test_api_db.py::test_database_constraints PASSED                   [ 51%]
+tests/test_data_and_validation.py::test_csv_quoted_commas_and_embedded_newlines PASSED [ 53%]
+tests/test_data_and_validation.py::test_real_answers_preserved_exactly PASSED [ 55%]
+tests/test_data_and_validation.py::test_boolean_and_number_parsing PASSED [ 57%]
+tests/test_data_and_validation.py::test_locate_valid_offsets_and_ids PASSED [ 59%]
+tests/test_data_and_validation.py::test_repeated_quote_resolved_by_order PASSED [ 61%]
+tests/test_data_and_validation.py::test_locate_rejects_invalid[raw0-not an exact substring] PASSED [ 63%]
+tests/test_data_and_validation.py::test_locate_rejects_invalid[raw1-unsupported label] PASSED [ 65%]
+tests/test_data_and_validation.py::test_locate_rejects_invalid[raw2-non-catalogue] PASSED [ 67%]
+tests/test_data_and_validation.py::test_locate_rejects_invalid[raw3-not an exact substring] PASSED [ 69%]
+tests/test_data_and_validation.py::test_locate_rejects_invalid[raw4-answer_id] PASSED [ 71%]
+tests/test_data_and_validation.py::test_validate_offsets_quote_duplicates_overlaps PASSED [ 73%]
+tests/test_data_and_validation.py::test_parse_model_json_variants PASSED [ 75%]
+tests/test_data_and_validation.py::test_reason_limited_to_two_sentences PASSED [ 76%]
+tests/test_scorer.py::test_perfect_output PASSED                         [ 78%]
+tests/test_scorer.py::test_missed_claim PASSED                           [ 80%]
+tests/test_scorer.py::test_extra_advice_prediction_lowers_precision PASSED [ 82%]
+tests/test_scorer.py::test_wrong_label_hits_joint_only PASSED            [ 84%]
+tests/test_scorer.py::test_partial_sentence_does_not_match PASSED        [ 86%]
+tests/test_scorer.py::test_provider_error_answer_keeps_gold_as_missed PASSED [ 88%]
+tests/test_scorer.py::test_valid_empty_predictions PASSED                [ 90%]
+tests/test_scorer.py::test_assessment_arithmetic_example PASSED          [ 92%]
+tests/test_scorer.py::test_rejects_missing_and_duplicated_outcomes PASSED [ 94%]
+tests/test_scorer.py::test_rejects_prediction_quote_mismatch PASSED      [ 96%]
+tests/test_scorer.py::test_check_split_quality_stays_null PASSED         [ 98%]
+tests/test_scorer.py::test_empty_scheduled_split_null_metrics PASSED     [100%]
 
-    def load_prompt(version: str) -> str:
-        path = PROMPT_DIR / f"{version}.md"
-        if not path.exists():
->           raise ValueError(f"unknown agent version {version!r}")
-E           ValueError: unknown agent version 'v2'
-
-app\agent.py:33: ValueError
-=========================== short test summary info ===========================
-FAILED tests/test_api_db.py::test_check_run_keeps_quality_null - ValueError: ...
-======================== 1 failed, 51 passed in 6.70s =========================
+============================= 52 passed in 7.12s ==============================

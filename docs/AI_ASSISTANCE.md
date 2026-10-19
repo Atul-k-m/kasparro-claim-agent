@@ -38,8 +38,20 @@ Tool: Claude Code (Anthropic, Claude Opus model) in VS Code. Claude Code wrote m
 - **Action:** Followed the brief's rule "Stop at the limit and state unfinished work". Wrote the README status table and committed.
 - **Result:** The submission records what is done, what is in progress and what is unfinished.
 
+## 9. Design the v2 change
+- **Situation:** v1 was producing results, and the brief requires one targeted change based on v1's errors.
+- **Task:** Write the v2 prompt from the v1 error evidence and keep a clean single-change comparison.
+- **Action:** Scored v1's first 11 development answers with the harness, then grouped the errors: 4 missed `unknown` claims and 2 wrong labels. Confirmed from the A10 trace that the model dropped claims the catalogue couldn't verify. Added a single coverage rule to make v2. Kept STAR formatting to this log, because restructuring the prompt itself would have changed many behaviors at once.
+- **Result:** `app/prompts/v2.md` differs from v1 by one line, and all 52 tests pass. The v2 runs are queued after v1.
+
+## 10. Draft the submission email
+- **Situation:** The work had to be submitted with the remaining runs still pending.
+- **Task:** Draft a short submission email for the hiring team.
+- **Action:** Wrote an email giving the repository link, what is included, the honest status with unfinished work, the Groq deviation and the AI-assistance disclosure.
+- **Result:** An email ready to send, with placeholders for names.
+
 ## Checks performed during the build (automated and observed)
-- 52 controlled tests were written and actually run; the output is in `reports/test_output.txt`. The one failing test needs the v2 prompt, which doesn't exist yet.
+- 52 controlled tests were written and actually run, and all pass; the output is in `reports/test_output.txt`.
 - Every one of the 376 gold offsets slices the loaded `ai_answer` exactly. This shows CSV decoding is lossless.
 - Live smoke tests on A01, A02 and A03: valid spans every time, and 10 of 10 exact span matches on A02.
 - Found and fixed a real provider failure: the undeclared `json` tool call (see README).
