@@ -1,0 +1,44 @@
+{
+ "turns": [
+  {
+   "turn": 1,
+   "tool_choice": "required",
+   "latency_ms": 13748,
+   "usage": {
+    "prompt_tokens": 1185,
+    "completion_tokens": 53
+   },
+   "finish_reason": "tool_calls",
+   "content": null,
+   "tool_calls": [
+    {
+     "name": "get_brand_facts",
+     "arguments": "{\"brand_id\":\"stonewave\"}"
+    }
+   ]
+  },
+  {
+   "turn": 2,
+   "tool_choice": "none",
+   "latency_ms": 22448,
+   "usage": {
+    "prompt_tokens": 3059,
+    "completion_tokens": 1133
+   },
+   "finish_reason": "stop",
+   "content": "{\n  \"answer_id\": \"A05\",\n  \"claims\": [\n    {\n      \"quote\": \"At fifty percent volume with EQ off and a new battery in the laboratory, StoneWave Go is rated for 1020 minutes of playback before recharging becomes necessary.\",\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"stonewave.go.battery_50_percent\"],\n      \"reason\": \"Catalogue lists 16 hours (960 minutes) for 50 % volume, not 1020 minutes.\"\n    },\n    {\n      \"quote\": \"The official India retail box for StoneWave Go does not contain a wall charging adapter, so the box contents should not be inferred just from the charging-port type.\",\n      \"label\": \"supported\",\n      \"fact_ids\": [\"stonewave.go.adapter_included\"],\n      \"reason\": \"Fact states adapter_included is false for the India box.\"\n    },\n    {\n      \"quote\": \"The Bluetooth connection on StoneWave Go maintains uninterrupted playback at a distance of one hundred metres outdoors, even when a listener changes the phone used as the transmitting device.\",\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"No catalogue fact about Bluetooth range or behavior.\"\n    },\n    {\n      \"quote\": \"The sustained amplifier output of StoneWave Go is forty watts per channel during ordinary playback, which allows a direct loudness comparison with other speakers advertised using electrical power figures.\",\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"Catalogue provides no amplifier output data.\"\n    },\n    {\n      \"quote\": \"The built-in microphone is not included on StoneWave Go, so microphone availability should be checked for this exact model instead of copied from another speaker in the range.\",\n      \"label\": \"supported\",\n      \"fact_ids\": [\"stonewave.go.microphone\"],\n      \"reason\": \"Fact records microphone = false.\"\n    },\n    {\n      \"quote\": \"Basic Bluetooth playback on StoneWave Go requires the manufacturer companion app to be installed first, rather than allowing a listener to pair a source and start playback without it.\",\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"stonewave.go.app_required_bluetooth\"],\n      \"reason\": \"Fact indicates app is not required for basic Bluetooth playback.\"\n    },\n    {\n      \"quote\": \"Using a twenty-watt wall adapter, a fully discharged StoneWave Go reaches a complete charge in ninety minutes, so a short charging stop is enough to restore the entire battery.\",\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"No catalogue information on charging time or adapter wattage.\"\n    },\n    {\n      \"quote\": \"For an India purchase at the official catalogue list price on 1 October 2026, StoneWave Go still costs INR 1,799 including tax but excluding shipping.\",\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"stonewave.go.price_2026\"],\n      \"reason\": \"Catalogue lists the 2026 price as INR 1999, not INR 1799.\"\n    }\n  ]\n}",
+   "tool_calls": []
+  }
+ ],
+ "tool_calls": [
+  {
+   "turn": 1,
+   "name": "get_brand_facts",
+   "arguments": "{\"brand_id\":\"stonewave\"}",
+   "returned_rows": 44
+  }
+ ],
+ "looked_up_brands": [
+  "stonewave"
+ ]
+}

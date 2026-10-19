@@ -1,0 +1,44 @@
+{
+ "turns": [
+  {
+   "turn": 1,
+   "tool_choice": "required",
+   "latency_ms": 10374,
+   "usage": {
+    "prompt_tokens": 1200,
+    "completion_tokens": 50
+   },
+   "finish_reason": "tool_calls",
+   "content": null,
+   "tool_calls": [
+    {
+     "name": "get_brand_facts",
+     "arguments": "{\"brand_id\":\"cleartrail\"}"
+    }
+   ]
+  },
+  {
+   "turn": 2,
+   "tool_choice": "none",
+   "latency_ms": 26223,
+   "usage": {
+    "prompt_tokens": 3094,
+    "completion_tokens": 1209
+   },
+   "finish_reason": "stop",
+   "content": "{\n  \"answer_id\": \"A01\",\n  \"claims\": [\n    {\n      \"quote\": \"For the current India catalogue, ClearTrail Mini is listed at INR 1,200 less than ClearTrail Plus, comparing the two tax-inclusive prices before shipping.\",\n      \"label\": \"supported\",\n      \"fact_ids\": [\"cleartrail.mini.price_2026\", \"cleartrail.plus.price_2026\"],\n      \"reason\": \"Prices match catalogue values and the difference is exactly 1200 INR.\"\n    },\n    {\n      \"quote\": \"For an authorized India purchase with the original invoice and a manufacturing defect, ClearTrail Mini receives a standard manufacturer warranty lasting 18 months from the purchase date.\",\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"cleartrail.mini.warranty_india\"],\n      \"reason\": \"Catalogue states warranty is 12 months, not 18 months.\"\n    },\n    {\n      \"quote\": \"An opened ClearTrail Mini can be returned to any authorized India seller within thirty days for a full refund, even when the speaker has no manufacturing defect or functional problem.\",\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"No return‑policy information is present in the catalogue.\"\n    },\n    {\n      \"quote\": \"The sustained amplifier output of ClearTrail Mini is forty watts per channel during ordinary playback, which allows a direct loudness comparison with other speakers advertised using electrical power figures.\",\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"Amplifier power specifications are not provided in the catalogue.\"\n    },\n    {\n      \"quote\": \"An authorized India service centre guarantees repair of ClearTrail Mini within two working days after receiving the unit and the required purchase paperwork, regardless of replacement-part availability.\",\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"Repair‑time guarantees are not covered by the catalogue facts.\"\n    },\n    {\n      \"quote\": \"The stated laboratory playback time for ClearTrail Mini, using a new battery with EQ off at one hundred percent volume, remains 12 hours without any reduction for louder playback.\",\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"cleartrail.mini.battery_100_percent\"],\n      \"reason\": \"Catalogue lists 6 hours at 100% volume, not 12 hours.\"\n    },\n    {\n      \"quote\": \"For an India purchase at the official catalogue list price on 1 October 2026, ClearTrail Mini costs INR 1,299 including tax but excluding shipping.\",\n      \"label\": \"supported\",\n      \"fact_ids\": [\"cleartrail.mini.price_2026\"],\n      \"reason\": \"Price matches the catalogue entry for 2026.\"\n    },\n    {\n      \"quote\": \"The official India retail box for ClearTrail Mini includes a wall charging adapter, even though separate accessory lists may make the charging arrangement look less obvious.\",\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"cleartrail.mini.adapter_included\"],\n      \"reason\": \"Catalogue indicates no wall adapter is included.\"\n    },\n    {\n      \"quote\": \"The built-in Wi-Fi capability of ClearTrail Mini is absent, which should be treated as a separate specification from its ability to receive audio over Bluetooth.\",\n      \"label\": \"supported\",\n      \"fact_ids\": [\"cleartrail.mini.wifi\"],\n      \"reason\": \"Wi‑Fi field is false, confirming absence.\"\n    }\n  ]\n}",
+   "tool_calls": []
+  }
+ ],
+ "tool_calls": [
+  {
+   "turn": 1,
+   "name": "get_brand_facts",
+   "arguments": "{\"brand_id\":\"cleartrail\"}",
+   "returned_rows": 44
+  }
+ ],
+ "looked_up_brands": [
+  "cleartrail"
+ ]
+}

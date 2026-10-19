@@ -1,0 +1,3 @@
+# Keep issued CSVs byte-identical (offsets and hashes depend on exact bytes)
+*.csv -text
+*.docx binary

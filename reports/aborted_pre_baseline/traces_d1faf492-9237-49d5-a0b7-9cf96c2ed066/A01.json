@@ -1,0 +1,32 @@
+{
+ "turns": [
+  {
+   "turn": 1,
+   "tool_choice": "required",
+   "latency_ms": 1290,
+   "usage": {
+    "prompt_tokens": 1187,
+    "completion_tokens": 37
+   },
+   "finish_reason": "tool_calls",
+   "content": null,
+   "tool_calls": [
+    {
+     "name": "get_brand_facts",
+     "arguments": "{\"brand_id\":\"cleartrail\"}"
+    }
+   ]
+  }
+ ],
+ "tool_calls": [
+  {
+   "turn": 1,
+   "name": "get_brand_facts",
+   "arguments": "{\"brand_id\":\"cleartrail\"}",
+   "returned_rows": 44
+  }
+ ],
+ "looked_up_brands": [
+  "cleartrail"
+ ]
+}

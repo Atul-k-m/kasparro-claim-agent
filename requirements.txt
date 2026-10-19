@@ -1,0 +1,11 @@
+openai==2.9.0
+fastapi==0.111.0
+starlette==0.37.2
+uvicorn==0.54.0
+pydantic==2.13.3
+psycopg[binary]==3.3.6
+python-dotenv==1.2.3
+httpx==0.28.1
+pytest==9.0.2
+# optional: embedded local PostgreSQL used by scripts/start_db.py (any PostgreSQL 14+ works)
+pgserver==0.1.4
