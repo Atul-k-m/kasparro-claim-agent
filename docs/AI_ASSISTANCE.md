@@ -50,6 +50,12 @@ Tool: Claude Code (Anthropic, Claude Opus model) in VS Code. Claude Code wrote m
 - **Action:** Wrote an email giving the repository link, what is included, the honest status with unfinished work, the Groq deviation and the AI-assistance disclosure.
 - **Result:** An email ready to send, with placeholders for names.
 
+## 11. Decide how to handle the provider quota
+- **Situation:** The v1 development run stopped at answer 34 of 40 when it hit Groq's free-tier daily cap of 200k tokens. The remaining runs need about 575k tokens.
+- **Task:** Choose between upgrading the provider tier, waiting for the quota to reset, switching provider, or stopping.
+- **Action:** Chose to stop at the limit, as the brief allows. Kept the interrupted run as partial evidence and updated the README status.
+- **Result:** The submission includes the partial v1 evidence (34 answers), the v2 prompt and its rationale, and an explicit unfinished-work section.
+
 ## Checks performed during the build (automated and observed)
 - 52 controlled tests were written and actually run, and all pass; the output is in `reports/test_output.txt`.
 - Every one of the 376 gold offsets slices the loaded `ai_answer` exactly. This shows CSV decoding is lossless.
